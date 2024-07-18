@@ -84,15 +84,15 @@ nav ul li a:hover {
         text-align: center;
     }
 
+    nav ul.active {
+        display: flex;
+    }
+
     nav ul li {
         margin: 10px 0;
     }
 
     .menu-toggle {
-        display: flex;
-    }
-
-    .menu-toggle.active + ul {
         display: flex;
     }
 }
