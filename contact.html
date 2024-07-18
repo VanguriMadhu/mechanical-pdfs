@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Advanced Feedback Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .feedback-form {
+
+        .feedback-form,
+        .comments-section {
             max-width: 600px;
             margin-bottom: 20px;
+            width: 100%;
         }
+
         .feedback-form div {
             margin-bottom: 10px;
         }
+
         .feedback-form label {
             display: block;
             margin-bottom: 5px;
         }
-        .feedback-form input, .feedback-form textarea {
+
+        .feedback-form input,
+        .feedback-form textarea {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
         }
+
         .feedback-form button {
             padding: 10px 20px;
             background-color: #007BFF;
@@ -31,28 +41,31 @@
             border: none;
             cursor: pointer;
         }
+
         .feedback-form button:hover {
             background-color: #0056b3;
         }
-        .comments-section {
-            max-width: 600px;
-        }
+
         .comment {
             border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 10px;
             position: relative;
         }
+
         .comment h3 {
             margin: 0;
         }
+
         .comment p {
             margin: 5px 0 10px 0;
         }
+
         .comment .timestamp {
             font-size: 0.8em;
             color: #777;
         }
+
         .comment .reply-button {
             background-color: transparent;
             border: none;
@@ -62,18 +75,22 @@
             right: 10px;
             top: 10px;
         }
+
         .comment .reply-button:hover {
             text-decoration: underline;
         }
+
         .reply-form {
             display: none;
             margin-top: 10px;
         }
+
         .reply-form textarea {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
         }
+
         .reply-form button {
             padding: 5px 10px;
             background-color: #007BFF;
@@ -82,112 +99,140 @@
             cursor: pointer;
             margin-top: 5px;
         }
+
         .reply-form button:hover {
             background-color: #0056b3;
         }
+
         .reply {
             margin-left: 20px;
         }
     </style>
 </head>
+
 <body>
+    <h1>Advanced Feedback Form</h1>
 
-<h1>Advanced Feedback Form</h1>
-
-<div class="feedback-form">
-    <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" required>
+    <div class="feedback-form">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div>
+            <label for="comment">Comment</label>
+            <textarea id="comment" rows="5" required></textarea>
+        </div>
+        <button onclick="submitComment()">Submit</button>
     </div>
-    <div>
-        <label for="comment">Comment</label>
-        <textarea id="comment" rows="5" required></textarea>
+
+    <h2>Comments</h2>
+    <div class="comments-section" id="comments-section">
+        <!-- Comments will be added here -->
     </div>
-    <button onclick="submitComment()">Submit</button>
-</div>
 
-<h2>Comments</h2>
-<div class="comments-section" id="comments-section">
-    <!-- Comments will be added here -->
-</div>
+    <script>
+        document.addEventListener("DOMContentLoaded", loadComments);
 
-<script>
-    function submitComment() {
-        var name = document.getElementById('name').value;
-        var comment = document.getElementById('comment').value;
+        function submitComment() {
+            var name = document.getElementById('name').value;
+            var comment = document.getElementById('comment').value;
 
-        if (name && comment) {
-            addComment(name, comment);
+            if (name && comment) {
+                var commentData = { name: name, comment: comment, timestamp: new Date().toLocaleString() };
+                saveComment(commentData);
+                addComment(commentData);
 
-            // Clear the form
-            document.getElementById('name').value = '';
-            document.getElementById('comment').value = '';
-        } else {
-            alert('Please fill out both fields.');
-        }
-    }
-
-    function addComment(name, comment, parentElement = null) {
-        var commentSection = parentElement || document.getElementById('comments-section');
-
-        var newComment = document.createElement('div');
-        newComment.classList.add('comment');
-
-        var commentHeader = document.createElement('h3');
-        commentHeader.textContent = name;
-
-        var commentText = document.createElement('p');
-        commentText.textContent = comment;
-        var timestamp = document.createElement('div');
-        timestamp.classList.add('timestamp');
-        timestamp.textContent = new Date().toLocaleString();
-
-        var replyButton = document.createElement('button');
-        replyButton.classList.add('reply-button');
-        replyButton.textContent = 'Reply';
-        replyButton.onclick = function() {
-            toggleReplyForm(newComment);
-        };
-
-        newComment.appendChild(commentHeader);
-        newComment.appendChild(commentText);
-        newComment.appendChild(timestamp);
-        newComment.appendChild(replyButton);
-
-        var replyForm = createReplyForm(newComment);
-        newComment.appendChild(replyForm);
-
-        commentSection.appendChild(newComment);
-    }
-
-    function toggleReplyForm(commentElement) {
-        var replyForm = commentElement.querySelector('.reply-form');
-        replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
-    }
-
-    function createReplyForm(commentElement) {
-        var replyForm = document.createElement('div');
-        replyForm.classList.add('reply-form');
-
-        var replyTextarea = document.createElement('textarea');
-        replyTextarea.rows = 3;
-        replyForm.appendChild(replyTextarea);
-
-        var submitReplyButton = document.createElement('button');
-        submitReplyButton.textContent = 'Submit Reply';
-        submitReplyButton.onclick = function() {
-            var replyText = replyTextarea.value;
-            if (replyText) {
-                addComment('Reply', replyText, commentElement);
-                replyTextarea.value = '';
-                replyForm.style.display = 'none';
+                document.getElementById('name').value = '';
+                document.getElementById('comment').value = '';
+            } else {
+                alert('Please fill out both fields.');
             }
-        };
-        replyForm.appendChild(submitReplyButton);
+        }
 
-        return replyForm;
-    }
-</script>
+        function addComment(commentData, parentElement = null) {
+            var commentSection = parentElement || document.getElementById('comments-section');
 
+            var newComment = document.createElement('div');
+            newComment.classList.add('comment');
+
+            var commentHeader = document.createElement('h3');
+            commentHeader.textContent = commentData.name;
+
+            var commentText = document.createElement('p');
+            commentText.textContent = commentData.comment;
+
+            var timestamp = document.createElement('div');
+            timestamp.classList.add('timestamp');
+            timestamp.textContent = commentData.timestamp;
+
+            var replyButton = document.createElement('button');
+            replyButton.classList.add('reply-button');
+            replyButton.textContent = 'Reply';
+            replyButton.onclick = function () {
+                toggleReplyForm(newComment);
+            };
+
+            newComment.appendChild(commentHeader);
+            newComment.appendChild(commentText);
+            newComment.appendChild(timestamp);
+            newComment.appendChild(replyButton);
+
+            var replyForm = createReplyForm(commentData.name, newComment);
+            newComment.appendChild(replyForm);
+
+            commentSection.appendChild(newComment);
+        }
+
+        function toggleReplyForm(commentElement) {
+            var replyForm = commentElement.querySelector('.reply-form');
+            replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function createReplyForm(parentName, commentElement) {
+            var replyForm = document.createElement('div');
+            replyForm.classList.add('reply-form');
+
+            var replyTextarea = document.createElement('textarea');
+            replyTextarea.rows = 3;
+            replyForm.appendChild(replyTextarea);
+
+            var submitReplyButton = document.createElement('button');
+            submitReplyButton.textContent = 'Submit Reply';
+            submitReplyButton.onclick = function () {
+                var replyText = replyTextarea.value;
+                if (replyText) {
+                    var commentData = {
+                        name: 'Admin',
+                        comment: replyText,
+                        timestamp: new Date().toLocaleString(),
+                        parent: parentName
+                    };
+                    saveComment(commentData);
+                    addComment(commentData, commentElement);
+                    replyTextarea.value = '';
+                    replyForm.style.display = 'none';
+                }
+            };
+            replyForm.appendChild(submitReplyButton);
+
+            return replyForm;
+        }
+
+        function saveComment(commentData) {
+            var comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(commentData);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        function loadComments() {
+            var comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.forEach(commentData => {
+                addComment(commentData);
+            });
+        }
+    </script>
 </body>
+
 </html>
+
+

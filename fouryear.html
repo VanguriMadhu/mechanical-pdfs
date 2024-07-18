@@ -11,45 +11,53 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            padding: 20px;
         }
         h1, h2 {
-            font-size: 2.5em;
+            font-size: 2em;
             text-align: center;
             color: gray;
-            padding: 20px;
-            width: 100%;
+            margin: 20px 0;
             font-weight: bold;
             animation: fadeIn 2s ease-in;
         }
         .container {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: 1fr;
             gap: 20px;
-            width: 80%;
+            width: 100%;
+            max-width: 600px;
             margin: 20px 0;
         }
         .container a {
-            padding: 20px 40px;
+            padding: 15px 30px;
             text-decoration: none;
             color: white;
             background-color: #007BFF;
             border-radius: 8px;
             text-align: center;
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            font-size: 1.25em;
+            font-size: 1em;
             animation: slideIn 1s ease-in;
         }
         .container a:hover {
             background-color: #0056b3;
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
         }
         @media (min-width: 600px) {
             .container {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            h1, h2 {
+                font-size: 2.5em;
+            }
+            .container a {
+                font-size: 1.25em;
+                padding: 20px 40px;
             }
         }
         @keyframes fadeIn {
@@ -77,7 +85,7 @@
         <a href="#">Industrial Engineering and Management</a>
         <a href="#">Environmental Impact Assessment</a>
     </div>
-    <h2>8TH SEMESTER(final)</h2>
+    <h2>8TH SEMESTER (final)</h2>
     <div class="container">
         <a href="#">Flexible Manufacturing System</a>
         <a href="#">Renewable Energy Sources</a>
