@@ -25,7 +25,6 @@ header {
     align-items: center;
     padding: 10px 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    animation: slideDown 0.5s ease-out;
 }
 
 header .logo {
@@ -91,37 +90,19 @@ nav ul li a:hover {
     }
 }
 
-@keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 main {
     display: flex;
+    flex-direction: column;
     margin-top: 70px;
     padding: 20px;
-    flex-wrap: wrap;
-    animation: fadeIn 1s ease-in;
 }
 
 .sidebar {
     width: 100%;
-    max-width: 300px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.sidebar:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
 }
 
 .sidebar .search-bar input {
@@ -143,11 +124,6 @@ main {
 
 .sidebar .quick-links ul li {
     margin-bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.sidebar .quick-links ul li:hover {
-    transform: translateX(5px);
 }
 
 .sidebar .quick-links ul li a {
@@ -162,30 +138,17 @@ main {
 
 .content {
     width: 100%;
-    max-width: calc(100% - 320px);
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-    animation: fadeIn 1s ease-in;
-}
-
-.content h1 {
-    grid-column: span 2;
-    margin-top: 0;
 }
 
 .resource-section {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 5px;
-}
-
-.resource-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .download-btn {
@@ -211,7 +174,6 @@ footer {
     padding: 20px 0;
     position: relative;
     width: 100%;
-    animation: slideUp 0.5s ease-out;
 }
 
 .footer-content {
@@ -227,13 +189,4 @@ footer {
 
 .footer-content a:hover {
     color: #007BFF;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
