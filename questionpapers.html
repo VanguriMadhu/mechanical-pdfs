@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select the Year</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            color: gray;
+            padding: 20px;
+            width: 100%;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 20px;
+            width: 80%;
+            margin: 20px 0;
+        }
+        .container a {
+            padding: 20px 40px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            font-size: 1.25em;
+            animation: slideIn 1s ease-in;
+        }
+        .container a:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
+        }
+        @media (min-width: 600px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>MODEL QUESTION PAPERS</h1>
+    <div class="container">
+        <a href="#">Semeter-1</a>
+        <a href="#">Semeter-2</a>
+        <a href="#">Semeter-3</a>
+        <a href="#">Semeter-4</a>
+        <a href="#">Semeter-5</a>
+        <a href="#">Semeter-6</a>
+        <a href="#">Semeter-7</a>
+        <a href="#">Semeter-8</a>
+    </div>
+</body>
+</html>
