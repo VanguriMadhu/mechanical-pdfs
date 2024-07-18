@@ -111,7 +111,8 @@ main {
 }
 
 .sidebar {
-    width: 25%;
+    width: 100%;
+    max-width: 300px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -160,7 +161,8 @@ main {
 }
 
 .content {
-    width: 75%;
+    width: 100%;
+    max-width: calc(100% - 320px);
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -227,17 +229,6 @@ footer {
     color: #007BFF;
 }
 
-.social-media a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-media a:hover {
-    color: #007BFF;
-    transform: scale(1.1);
-}
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -245,81 +236,4 @@ footer {
     to {
         opacity: 1;
     }
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-
-
-/* Existing CSS code */
-
-/* Styles for individual pages */
-
-body.notes,
-body.questions,
-body.papers,
-body.resources,
-body.contact {
-    background-color: #f4f4f4;
-}
-
-body.notes h1,
-body.questions h1,
-body.papers h1,
-body.resources h1,
-body.contact h1 {
-    margin-top: 50px;
-}
-
-body.notes .content,
-body.questions .content,
-body.papers .content,
-body.resources .content,
-body.contact .content {
-    margin-top: 20px;
-}
-
-body.notes .resource-section,
-body.questions .resource-section,
-body.papers .resource-section,
-body.resources .resource-section,
-body.contact .resource-section {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-radius: 5px;
-}
-
-body.notes .download-btn,
-body.questions .download-btn,
-body.papers .download-btn,
-body.resources .download-btn,
-body.contact .download-btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-body.notes .download-btn:hover,
-body.questions .download-btn:hover,
-body.papers .download-btn:hover,
-body.resources .download-btn:hover,
-body.contact .download-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
 }
