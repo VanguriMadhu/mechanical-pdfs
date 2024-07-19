@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Display Banner</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+        }
+        .banner {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .banner h1 {
+            font-size: 3em;
+            animation: fadeIn 2s ease-in-out;
+            margin: 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        footer {
+            width: 100%;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            font-size: 1em;
+        }
+        @media (max-width: 600px) {
+            .banner h1 {
+                font-size: 2em;
+            }
+            footer {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>All the important questions are shuffled with class notes section</h1>
+    </div>
+    <footer>
+        DEVELOPED BY: VANGURI MADHU
+    </footer>
+    <script>
+        // Add any JavaScript you need here
+    </script>
+</body>
+</html>

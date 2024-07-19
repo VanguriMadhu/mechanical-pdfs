@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #282c34;
+            color: #61dafb;
+            text-align: center;
+            overflow: hidden;
+        }
+        .banner {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .banner h1 {
+            font-size: 3em;
+            animation: slideIn 1.5s ease-in-out;
+            margin: 0;
+            padding: 20px;
+            background: rgba(40, 44, 52, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            color: #ffffff;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        footer {
+            width: 100%;
+            padding: 15px;
+            background: #20232a;
+            color: #61dafb;
+            text-align: center;
+            font-size: 1em;
+        }
+        @media (max-width: 600px) {
+            .banner h1 {
+                font-size: 2em;
+            }
+            footer {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Our Team is Currently Enhancing This Page</h1>
+    </div>
+    <footer>
+        DEVELOPED BY VANGURI MADHU
+    </footer>
+    <script>
+        // Add any JavaScript you need here
+    </script>
+</body>
+</html>

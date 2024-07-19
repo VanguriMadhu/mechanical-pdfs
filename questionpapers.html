@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select the Year</title>
+    <title>Model Question Papers - Layout 2</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,72 +13,156 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #fff3e0;
+            padding: 20px;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             text-align: center;
-            color: gray;
-            padding: 20px;
+            color: #e65100;
+            margin-bottom: 20px;
             width: 100%;
-            font-weight: bold;
-            animation: fadeIn 2s ease-in;
         }
         .container {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 20px;
-            width: 80%;
-            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
         }
-        .container a {
-            padding: 20px 40px;
+        .dropdown {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+        }
+        .dropdown-btn {
+            width: 100%;
+            padding: 15px;
             text-decoration: none;
-            color: white;
-            background-color: #007BFF;
+            color: #e65100;
+            background-color: transparent;
+            border: 2px solid #e65100;
             border-radius: 8px;
             text-align: center;
-            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-            font-size: 1.25em;
-            animation: slideIn 1s ease-in;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
         }
-        .container a:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-            box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
+        .dropdown-btn:hover {
+            background-color: #e65100;
+            color: white;
+            box-shadow: 0px 4px 15px rgba(230, 81, 0, 0.4);
         }
-        @media (min-width: 600px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            width: 100%;
+            border-radius: 0 0 8px 8px;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: black;
+            background-color: white;
+            transition: background-color 0.3s;
         }
-        @keyframes slideIn {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .show {
+            display: block;
         }
     </style>
+    <script>
+        function toggleDropdown(dropdownId) {
+            document.getElementById(dropdownId).classList.toggle("show");
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>MODEL QUESTION PAPERS</h1>
     <div class="container">
-        <a href="#">Semeter-1</a>
-        <a href="#">Semeter-2</a>
-        <a href="#">Semeter-3</a>
-        <a href="#">Semeter-4</a>
-        <a href="#">Semeter-5</a>
-        <a href="#">Semeter-6</a>
-        <a href="#">Semeter-7</a>
-        <a href="#">Semeter-8</a>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown1')">Semester-1</div>
+            <div id="dropdown1" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown2')">Semester-2</div>
+            <div id="dropdown2" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown3')">Semester-3</div>
+            <div id="dropdown3" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown4')">Semester-4</div>
+            <div id="dropdown4" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown5')">Semester-5</div>
+            <div id="dropdown5" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown6')">Semester-6</div>
+            <div id="dropdown6" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown7')">Semester-7</div>
+            <div id="dropdown7" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown('dropdown8')">Semester-8</div>
+            <div id="dropdown8" class="dropdown-content">
+                <a href="#">File 1</a>
+                <a href="#">File 2</a>
+                <a href="#">File 3</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
