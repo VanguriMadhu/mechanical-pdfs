@@ -25,14 +25,38 @@
             animation: fadeIn 2s ease-in;
         }
         .container {
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
             width: 100%;
             max-width: 600px;
             margin: 20px 0;
         }
-        .container a {
+        .dropdown {
+            position: relative;
+            width: 100%;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown-btn {
             padding: 15px 30px;
             text-decoration: none;
             color: white;
@@ -41,21 +65,25 @@
             text-align: center;
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
             font-size: 1em;
+            cursor: pointer;
             animation: slideIn 1s ease-in;
+            width: 100%;
         }
-        .container a:hover {
+        .dropdown-btn:hover {
             background-color: #0056b3;
             transform: scale(1.05);
             box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
         }
         @media (min-width: 600px) {
             .container {
-                grid-template-columns: repeat(2, 1fr);
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
             }
             h1, h2 {
                 font-size: 2.5em;
             }
-            .container a {
+            .dropdown-btn {
                 font-size: 1.25em;
                 padding: 20px 40px;
             }
@@ -79,17 +107,90 @@
 <body>
     <h1>1ST SEMESTER</h1>
     <div class="container">
-        <a href="#">Linear Algebra & Applied Calculus</a>
-        <a href="#">Engineering Physics</a>
-        <a href="#">C Programming for Problem Solving</a>
-        <a href="#">Engineering Graphics</a>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Linear Algebra & Applied Calculus</div>
+            <div class="dropdown-content">
+                <a href="pdf/sem1/m-1/Differential Equations  58.pdf" download>Differential Equations</a>
+                <a href="pdf/sem1/m-1/Engineering Mathematics  270.pdf" download>Engineering Mathematics</a>
+                <a href="pdf/sem1/m-1/LAAC class notes.pdf" download>LAAC class notes</a>
+                <a href="pdf/sem1/m-1/math.pdf" download>full m1</a>
+                <a href="pdf/sem1/m-1/Matrix-algbra-Handwritten-Notes.pdf" download>Matrix-algbra-Handwritten-Notes</a>
+                <a href="pdf/sem1/m-1/CLICK HERE .pptx" download>Follow Me</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Engineering Physics</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">C Programming for Problem Solving</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Engineering Graphics</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
     </div>
     <h2>2ND SEMESTER</h2>
     <div class="container">
-        <a href="#">Differential Equations & Vector Calculus</a>
-        <a href="#">Engineering Chemistry</a>
-        <a href="#">Engineering Mechanics</a>
-        <a href="#">English</a>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Differential Equations & Vector Calculus</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Engineering Chemistry</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">Engineering Mechanics</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-btn" onclick="toggleDropdown(this)">English</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
     </div>
+    <script>
+        function toggleDropdown(element) {
+            var dropdownContent = element.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-btn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

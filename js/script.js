@@ -23,7 +23,7 @@ menuToggle.addEventListener('click', () => {
 // Display popup after 4 seconds
 setTimeout(() => {
     popup.classList.add('show');
-}, 4000);
+}, 3000);
 
 // Close popup
 closePopup.addEventListener('click', () => {
