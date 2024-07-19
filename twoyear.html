@@ -32,7 +32,32 @@
             max-width: 600px;
             margin: 20px 0;
         }
-        .container a {
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content, .dropdown-content.show {
+            display: block;
+        }
+        .dropdown button {
             padding: 15px 30px;
             text-decoration: none;
             color: white;
@@ -42,8 +67,11 @@
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
             font-size: 1em;
             animation: slideIn 1s ease-in;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
-        .container a:hover {
+        .dropdown button:hover {
             background-color: #0056b3;
             transform: scale(1.05);
             box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
@@ -55,7 +83,7 @@
             h1, h2 {
                 font-size: 2.5em;
             }
-            .container a {
+            .dropdown button {
                 font-size: 1.25em;
                 padding: 20px 40px;
             }
@@ -79,21 +107,111 @@
 <body>
     <h1>3RD SEMESTER</h1>
     <div class="container">
-        <a href="#">Probability & Statistics and Complex Variables</a>
-        <a href="#">Basic Electrical Engineering</a>
-        <a href="#">Basic Electronics</a>
-        <a href="#">Thermodynamics</a>
-        <a href="#">Metallurgy and Material Science</a>
-        <a href="#">Mechanics of Solids</a>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Probability & Statistics and Complex Variables</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Basic Electrical Engineering</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Basic Electronics</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Thermodynamics</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Metallurgy and Material Science</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Mechanics of Solids</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
     </div>
     <h2>4TH SEMESTER</h2>
     <div class="container">
-        <a href="#">Business Economics and Financial Analysis</a>
-        <a href="#">Fluid Mechanics and Hydraulic Machines</a>
-        <a href="#">Kinematics of Machinery</a>
-        <a href="#">Manufacturing Process</a>
-        <a href="#">Machine Drawing</a>
-        <a href="#">Thermal Engineering - I</a>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Business Economics and Financial Analysis</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Fluid Mechanics and Hydraulic Machines</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Kinematics of Machinery</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Manufacturing Process</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Machine Drawing</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button onclick="toggleDropdown(event)">Thermal Engineering - I</button>
+            <div class="dropdown-content">
+                <a href="#">Download File 1</a>
+                <a href="#">Download File 2</a>
+            </div>
+        </div>
     </div>
+    <script>
+        function toggleDropdown(event) {
+            let dropdownContent = event.target.nextElementSibling;
+            dropdownContent.classList.toggle('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown button')) {
+                let dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    let openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

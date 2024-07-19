@@ -32,7 +32,32 @@
             max-width: 600px;
             margin: 20px 0;
         }
-        .container a {
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            min-width: 160px;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-button {
             padding: 15px 30px;
             text-decoration: none;
             color: white;
@@ -42,8 +67,9 @@
             transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
             font-size: 1em;
             animation: slideIn 1s ease-in;
+            cursor: pointer;
         }
-        .container a:hover {
+        .dropdown-button:hover {
             background-color: #0056b3;
             transform: scale(1.05);
             box-shadow: 0px 4px 15px rgba(0, 123, 255, 0.4);
@@ -55,7 +81,7 @@
             h1, h2 {
                 font-size: 2.5em;
             }
-            .container a {
+            .dropdown-button {
                 font-size: 1.25em;
                 padding: 20px 40px;
             }
@@ -79,16 +105,58 @@
 <body>
     <h1>7TH SEMESTER</h1>
     <div class="container">
-        <a href="#">Finite Element Methods</a>
-        <a href="#">CAD/CAM</a>
-        <a href="#">Automation in Manufacturing</a>
-        <a href="#">Industrial Engineering and Management</a>
-        <a href="#">Environmental Impact Assessment</a>
+        <div class="dropdown">
+            <div class="dropdown-button">Finite Element Methods</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-button">CAD/CAM</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-button">Automation in Manufacturing</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-button">Industrial Engineering and Management</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-button">Environmental Impact Assessment</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
     </div>
     <h2>8TH SEMESTER (final)</h2>
     <div class="container">
-        <a href="#">Flexible Manufacturing System</a>
-        <a href="#">Renewable Energy Sources</a>
+        <div class="dropdown">
+            <div class="dropdown-button">Flexible Manufacturing System</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-button">Renewable Energy Sources</div>
+            <div class="dropdown-content">
+                <a href="file1.pdf" download>File 1</a>
+                <a href="file2.pdf" download>File 2</a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
