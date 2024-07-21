@@ -1,0 +1,20 @@
+﻿1.Define temperature gradient?
+*the rate of change of temperature with displacement in a given direction (as with increase of height)*
+2.What are the different modes heat transfer?
+*Conduction, Convection and Radiation*
+3.Define heat flux?
+
+4.What is critical radius of insulation
+*a counterintuitive concept within the study of heat transfer*
+5.Define effectiveness of the fin?
+*the dimensionless parameter which can be measured the ratio of the heat transfer from the fin to the heat transfer occupied by the fin without fin attached*
+6.Define thermal capacity
+*the quantity of heat necessary to produce a unit change of temperature in a unit mass of a material*
+7.What is mean by drop wise condensation
+*occurs when a vapor condenses on a surface not wetted by the condensate*
+8.What is the function of insulating materials?
+*enhances the thermal performance of the building envelope by reducing heat gain in hot weather and heat loss in cold weather thereby limiting the need for cooling and heating*
+9.Define regenerator and recuperator?
+*heat exchange systems that recover heat by cycling through heat sinks (regenerators) or through a high temperature metallic heat exchanger (recuperators)*
+10.What are the advantages of NTU method over the LMTD method
+*more convenient for prediction of the outlet fluid temperatures if the heat transfer coefficient and the inlet temperatures are known*
