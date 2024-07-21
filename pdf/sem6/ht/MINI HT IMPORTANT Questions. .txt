@@ -1,0 +1,20 @@
+﻿*Unit 1*
+Partician coordinates
+Cylinder
+Spherical 
+Fourier law (problems )
+*Unit 2*
+*Composite slabs 
+*Fin's (problems), efficiency 
+*Lumped system parameters 
+*Methods in lumped system (types)
+*Unit 3*
+π theorem (Buckingham)
+Thermal boundary layer theorems ( diagram , theory , derivation)
+*Unit 4*
+* forced convection problems
+*LMTD 
+*NTU methods
+ *Unit 5*
+Radiation problems
+Heat exchanger
