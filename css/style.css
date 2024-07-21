@@ -210,7 +210,7 @@ footer {
     transform: translate(-50%, -50%);
     width: 80%;
     max-width: 500px;
-    background-color: #fff;
+    background-color: #b71010;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     z-index: 1001;
     opacity: 0;
@@ -220,6 +220,7 @@ footer {
 .popup-content {
     padding: 20px;
     text-align: center;
+    color: #fff;
 }
 
 .close-btn {
